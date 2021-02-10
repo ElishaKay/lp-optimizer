@@ -19,7 +19,19 @@ const saveBtnClick = ({ip, buttonColor, trafficSource}) => {
               console.log('btnClick saved successfully in DB', data);
           }
     });
-  }
+}
+
+const savePageVisit = ({ip, buttonColor, trafficSource}) => {
+    let pageVisit = new PageVisit({ip, buttonColor, trafficSource});
+  
+    pageVisit.save((err, data) => {
+          if (err) {
+              console.log('error saving pageVisit in DB:', err);
+          } else {
+              console.log('pageVisit saved successfully in DB', data);
+          }
+    });
+}
 
 exports.buyNowBtnClicked = (req, res, next) => {
     console.log('buyNowBtnClicked controller func ran')
@@ -32,7 +44,10 @@ exports.buyNowBtnClicked = (req, res, next) => {
 }
 
 exports.displayLP = (req, res, next) => {
-    let buttonColor = isEven(visitCount) ? 'purple' : '#4CAF50'
+    let buttonColor = isEven(visitCount) ? 'purple' : '#4CAF50';
+    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    
+    savePageVisit({ip, buttonColor});
     visitCount++;
     res.send(awesomeTemplateCSS({buttonColor})+awesomeTemplateHTML({buttonColor}));
 }
