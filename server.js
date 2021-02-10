@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 require('dotenv').config()
 const path = require('path')
 const landingPagesRoutes = require('./routes/landingPages');
+const analyticsRoutes = require('./routes/analytics');
+
 
 mongoose
     .connect(process.env.MONGO_DEV, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false, useUnifiedTopology: true })
@@ -27,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use('/', landingPagesRoutes);
+app.use('/analytics', analyticsRoutes);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
