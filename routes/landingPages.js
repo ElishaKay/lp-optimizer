@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 
-const { displayImages } = require('../controllers/images')
+const { displayLP } = require('../controllers/landingPages')
 
-router.get('/:folder', displayImages)
+router.get('/', displayLP)
 
 // router.post('/tag', create);
 // router.get('/tags', list);
