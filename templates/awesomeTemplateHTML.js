@@ -28,6 +28,12 @@ exports.awesomeTemplateHTML = () => {
 	// }
 
 	return `
+	<script>
+		const sendClickData = () => {
+			console.log('sendClickData function ran');
+		}
+	</script>
+
 	<html>
 	<body>
 	<div>
@@ -42,7 +48,7 @@ exports.awesomeTemplateHTML = () => {
 						<span class="price">$4.99</span>
 					</div>
 					<div class="buttons-container">
-						<button>Buy</button>
+						<button onclick="sendClickData()">Buy</button>
 					</div>
 				</div>
 			</div>
