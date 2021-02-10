@@ -1,4 +1,4 @@
-exports.awesomeTemplateHTML = () => {
+exports.awesomeTemplateHTML = ({buttonColor}) => {
 	// console.log('allFolders in HTML', allFolders);
 
 	// const loadOptions = () => {
@@ -38,7 +38,7 @@ exports.awesomeTemplateHTML = () => {
 					'Accept': 'application/json, text/plain, */*',
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify({a: 7, str: 'Some string: &=&'})
+				body: JSON.stringify({buttonColor: '${buttonColor}'})
 				}).then(res=>res.json())
 				.then(res => console.log(res));
 
