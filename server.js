@@ -1,4 +1,7 @@
 const mongoose = require('mongoose')
+const morgan = require('morgan')
+const bodyParser = require("body-parser");
+
 require('dotenv').config()
 const path = require('path')
 const landingPagesRoutes = require('./routes/landingPages');
@@ -14,6 +17,14 @@ mongoose
 const express = require('express')
 const app = express()
 const port = 3000
+
+app.use(morgan('dev'));
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 app.use('/', landingPagesRoutes);
 

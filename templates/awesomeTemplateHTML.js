@@ -38,9 +38,12 @@ exports.awesomeTemplateHTML = () => {
 					'Accept': 'application/json, text/plain, */*',
 					'Content-Type': 'application/json'
 				},
-				body: JSON.stringify({message: 'secret message'})
+				body: JSON.stringify({a: 7, str: 'Some string: &=&'})
 				}).then(res=>res.json())
 				.then(res => console.log(res));
+
+			
+
 		}
 	</script>
 
