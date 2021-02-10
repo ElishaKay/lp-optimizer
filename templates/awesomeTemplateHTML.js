@@ -1,4 +1,4 @@
-exports.awesomeTemplateHTML = ({buttonColor}) => {
+exports.awesomeTemplateHTML = () => {
 	// console.log('allFolders in HTML', allFolders);
 
 	// const loadOptions = () => {

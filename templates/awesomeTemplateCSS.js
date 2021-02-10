@@ -1,4 +1,4 @@
-exports.awesomeTemplateCSS = () => {
+exports.awesomeTemplateCSS = ({buttonColor}) => {
 	return `
 		<style>
 			
@@ -101,8 +101,8 @@ exports.awesomeTemplateCSS = () => {
             display: block;
             width: 100%;
             height: 100%;
-            color: #4CAF50;
-            border: 1px solid #4CAF50;
+            color: ${buttonColor};
+            border: 1px solid ${buttonColor};
             border-radius: 3px;
             background-color: white;
             margin: auto;
@@ -110,7 +110,7 @@ exports.awesomeTemplateCSS = () => {
 
         .buttons-container button:hover {
             color: white;
-            background-color: #4CAF50;
+            background-color: ${buttonColor};
         }
 
 
