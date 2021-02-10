@@ -31,6 +31,16 @@ exports.awesomeTemplateHTML = () => {
 	<script>
 		const sendClickData = () => {
 			console.log('sendClickData function ran');
+
+			fetch('http://localhost:3000/buy-now-clicked', {
+				method: 'post',
+				headers: {
+					'Accept': 'application/json, text/plain, */*',
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({message: 'secret message'})
+				}).then(res=>res.json())
+				.then(res => console.log(res));
 		}
 	</script>
 
